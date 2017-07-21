@@ -9,7 +9,7 @@ build:
             code: |
                 curl https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-linux-x64.tar.gz -o /tmp/heroku-client.tgz
                 mkdir /tmp/heroku/
-                tar xzvf /tmp/heroku-client.tgz -C /tmp/heroku/
+                tar xzvf /tmp/heroku-client.tgz -C /tmp/heroku/ --strip-components 1
 
         - script:
             name: prepare output
