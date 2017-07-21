@@ -7,7 +7,7 @@ build:
         - script:
             name: build shellcheck
             code: |
-                curl -L https://s3.amazonaws.com/assets.heroku.com/heroku-client/heroku-client.tgz > /tmp/heroku-client.tgz
+                curl https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-linux-x64.tar.gz -o /tmp/heroku-client.tgz
                 mkdir /tmp/heroku/
                 tar xzvf /tmp/heroku-client.tgz -C /tmp/heroku/
 
