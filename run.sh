@@ -190,12 +190,11 @@ install_toolbelt() {
     check_ruby;
 
     if ! type heroku &> /dev/null; then
-        info 'heroku toolbelt not found, starting installing it';
-
-        # extract from $steproot/heroku-client.tgz into /usr/local/heroku
-        sudo rm -rf /usr/local/heroku
-        sudo cp -r "$WERCKER_STEP_ROOT/vendor/heroku" /usr/local/heroku
-        export PATH="/usr/local/heroku/bin:$PATH"
+        info 'heroku toolbelt not found, start installing it';
+        mkdir -p /usr/local/lib /usr/local/bin
+        cp -r "$WERCKER_STEP_ROOT/vendor/heroku" /usr/local/lib/heroku
+        ln -s /usr/local/lib/heroku/bin/heroku /usr/local/bin/heroku
+        export PATH="/usr/local/bin/heroku:$PATH"
 
         info 'finished heroku toolbelt installation';
     else
